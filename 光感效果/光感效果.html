@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>光感效果</title>
+	</head>
+	<style>
+		html,body{
+			height: 100%;
+			overflow: hidden;
+		}
+		body{
+			background-color: #c08eaf;
+		}
+		.main{
+			/* 中心点 */
+			width: 8px;
+			height: 8px;
+			/* background-color: aqua; */
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			/* 景深 */
+			perspective: 400px;
+		}
+		.main i{
+			/* 动点 */
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background:white;
+			box-shadow: 0 0 10px 0 white;
+			position: absolute;
+			/* 动画 */
+			animation: run 3s ease-in-out infinite;
+		}
+		/* .main i:nth-child(1){
+			transform: rotate(0deg) translateX(80px);
+		} */
+		
+		/* 动画 */
+		@keyframes run{
+			0%{
+				opacity: 0;
+			}
+			10%{
+				opacity: 1;
+			}
+			100%{
+				opacity: 1;
+				/* 3D动画效果 */
+				transform: translate3d(0,0,560px);
+			}
+		}
+	</style>
+	<body>
+		<div class="main" id="main">
+		</div>
+	</body>
+	<script type="text/javascript">
+		//获取元素
+		var m = document.getElementById("main");
+		for(var i = 0;i<60;i++){
+			//创建元素
+			var newNode = document.createElement("i");
+			//添加元素
+			m.appendChild(newNode)
+			//设置旋转角度 及x轴方向位移距离
+			newNode.style.transform=`rotate(${i*12}deg) translateX(80px)`
+			//设置动画延迟
+			newNode.style.animationDelay=`${i*0.05}s`
+		}
+	</script>
+</html>
