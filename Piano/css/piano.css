@@ -1,0 +1,40 @@
+
+		body{
+			width: 100vw;
+			height: 100vh;
+			background-color: bisque ;
+			margin: 0;
+		}
+		/* 琴键容器 */
+		#main{
+			position: relative;
+			display: flex;	
+		}
+		/* 白键样式 */
+		.white{
+			background-color: #eee;
+			/* width: 1.96vw; */
+			height: 67vh;
+			border: solid 0.05px darkgray;
+		}
+		/* 黑键样式 */
+		.black{
+			position: absolute;
+			background-color: black;
+			/* width: 18px; */
+			height: 30vh;
+			/* border: solid 1px darkgray; */
+		}
+		#fileUpload,#readAsText{
+			display: inline-block;
+		}
+		.uploadText{
+			font-size: 1.5vw;
+			width: 25vw;
+			height: 6.5vh;
+		}
+		.uploadText1{
+			font-size: 1.3vw;
+			width: 10vw;
+			height: 5vh;
+		}
