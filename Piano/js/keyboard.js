@@ -1,3 +1,41 @@
+window.onload = function(){
+		var i;
+		//设定钢琴键的事件
+		if(document.addEventListener){
+			for(i = 1; i <= 88; i ++){
+				setKeyEventListener(i);
+			}
+		}else if(document.attachEvent){
+			for(i = 1; i <= 88; i ++){
+				setKeyAttachEvent(i);
+			}
+		}
+	}
+	
+	//设定钢琴键的点击事件(EventListener版)
+	function setKeyEventListener(noteNumber){
+		var keyId = 'key' + noteNumber;
+		var key = document.getElementById(keyId);
+		if(key){
+			key.addEventListener('click', keyClick, false);
+		}
+	}
+	
+	//设定钢琴键的点击事件(AttachEvent版)
+	function setKeyAttachEvent(noteNumber){
+		var keyId = 'key' + noteNumber;
+		var key = document.getElementById(keyId);
+		if(key){
+			key.attachEvent('onclick', keyClick);
+		}
+	}
+	//按下钢琴键时
+	function keyClick(){
+		var that = this;
+		var noteNumber = that.id.replace('key','');
+		playSound(noteNumber);
+	}
+
 //指定发出的声音
 	function playSound(noteNumber){
 		var soundId = 'sound' + noteNumber;
