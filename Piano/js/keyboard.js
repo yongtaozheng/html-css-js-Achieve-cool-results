@@ -185,12 +185,13 @@ window.onload = function(){
 				setTimeout('autoplay()', 300);
 				}
 			else {
-				setTimeout('autoplay()', 320);
+				setTimeout('autoplay()', 250);
 			}
 	}
 	var autoPlayMusic = function(e){
 		ii = 0;
 		e.replace("/n","");
+		e.replace(" ",",");
 		music = e.split(',');
 		
 		setTimeout('autoplay()', 2000);

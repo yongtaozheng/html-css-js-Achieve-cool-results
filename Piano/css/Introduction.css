@@ -1,0 +1,30 @@
+
+	#inf{
+		position: absolute;
+		z-index: 999;
+		display: none;
+	}
+	.pic{
+		width: 60vw;
+		margin-left: 20vw;
+		margin-top: 15vh;
+		z-index: 1000;
+	}
+	.close{
+		color: red;
+		font-weight: bolder;
+		font-size: 1vw;
+		z-index: 1001;
+		position: relative;
+		left: -1vw;
+		bottom:54vh;
+		cursor: pointer;
+	}
+	.htp{
+		position: absolute;
+		font-size: 1vw;
+		text-decoration: underline;
+		color: #00B4F1;
+		right: 1vw;
+		cursor: pointer;
+	}
