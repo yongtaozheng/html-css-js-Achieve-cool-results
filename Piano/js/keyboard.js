@@ -1,7 +1,18 @@
 window.onload = function(){
+	var htp = document.getElementById('htp');
+	var inf = document.getElementById("inf");
+	var close = document.getElementById('close');
+	htp.addEventListener('click',function(){
+		inf.style.display = "block";
+	},false);
+	close.addEventListener('click',function(){
+		inf.style.display = "none";
+	},false);
+	console.log("keyboardjs");
 		var i;
 		//设定钢琴键的事件
-		if(document.addEventListener){
+		if(document.addEventListener){				
+			console.log(111);
 			for(i = 1; i <= 88; i ++){
 				setKeyEventListener(i);
 			}
@@ -33,6 +44,7 @@ window.onload = function(){
 	function keyClick(){
 		var that = this;
 		var noteNumber = that.id.replace('key','');
+		console.log(noteNumber);
 		playSound(noteNumber);
 	}
 
@@ -154,29 +166,8 @@ window.onload = function(){
 		'D###':87,
 		'E###':88,
 	}
-	//小星星曲谱
-	var xxx = [0,0,1,1,5,5,6,6,5,0,4,4,3,3,2,2,1,0,5,5,4,4,3,3,2,0,5,5,4,4,3,3,2,0,1,1,5,5,6,6,5,0,4,4,3,3,2,2,1];
-	//因为爱情曲谱
-	var ywaq = [0,0,0,0,
-				0,0,0,'.5','.6',1,1,'.6',1,2,0,0,
-				3,2,0,1,'6',0,0,3,2,'.6',3,2,1,0,0,
-				1,'.6',0,'.6','.7',0,0,1,1,'.6',3,2,2,
-				0,0,3,2,2,2,2,3,0,3,0,0,0,0,0,0,0,0,0,0,
-				1,'.6',1,3,5,0,0,5,2,2,0,0,0,0,0,0,0,0,
-				2,3,5,0,0,5,3,0,5,5,3,0,0,2,5,5,0,0,6,7,
-				0,0,'1.','1.','1.',7,'1.',7,7,7,0,0,5,3,3,
-				0,0,5,3,0,0,5,6,6,5,6,5,0,0,5,1,1,0,0,'.6',
-				1,0,0,3,2,'.6',3,2,'.6',6,0,0,5,0,0,2,3,5,0,
-				0,5,3,3,0,5,5,3,0,0,2,5,5,0,0,6,7,'1.','1.',
-				'1.',7,'1.',7,7,7,0,0,5,3,3,0,0,5,3,0,0,5,6,
-				6,5,6,5,0,0,5,1,1,0,0,'.6',1,0,0,3,2,'.6',3,
-				2,'.6',3,2,0,0,2,0,0,3,2,3,0,0,3,1,1,0,0,0,0]
-	//青花瓷曲谱
-	var qhc = [0,0,0,0,0,0,0,0,5,5,3,2,3,'.6',0,2,3,5,3,2,0,0,5,5,3,2,3,'.5',0,
-				2,3,5,2,1,0,1,2,3,5,6,5,3,5,3,3,2,2,0,0,1,2,1,2,1,2,2,3,
-				5,3,3,0,0,5,5,3,2,3,'.6',0,2,3,5,3,2,0,5,5,3,2,3,'.5',0,2,3,
-				5,2,1,0,1,2,3,5,6,5,3,5,3,3,2,2,0,0,5,3,2,2,1,1,0,0,0]
-	var ii = 0,music=qhc;
+	
+	var ii = 0,musi;
 	var autoplay = function(){
 		playSound(keyfrom[music[ii]]);
 		ii++;
