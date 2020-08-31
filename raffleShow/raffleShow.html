@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#main{
+				background-color: #EE6A50;
+				width: 30vw;
+				height: 30vh;
+				position: absolute;
+				right: 30vw;
+				bottom: 60vh;
+				opacity: 0.5;
+				overflow: hidden;
+			}
+			.show{
+				top: -36vh;
+				position: relative;
+				text-align: center;
+				margin-top: 5vh;
+				line-height: 4vh;
+				animation: move 5S linear infinite;
+				z-index: 0;
+				animation-play-state:running;
+			}
+			@keyframes move{
+				from{
+					bottom: 0;
+				}
+				to{
+					top:0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<ul id="container1" class="contain"></ul>
+			<ul id="container2" class="contain"></ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var showData = ["恭喜张三获得奖励华为P40一部","恭喜李四获得奖励奔驰一辆","恭喜王五获得奖励加班一天",
+						"恭喜赵六获得奖励放假一天"];
+		
+		var main = document.getElementById("main");
+		var container1 = document.getElementById("container1");
+		var container2 = document.getElementById("container2");
+		var show = document.getElementsByClassName("show");
+		
+		
+		for(var i = 0;i<showData.length;i++){
+			var newNode = document.createElement("li");
+			newNode.id = "inf" + i;
+			newNode.className = "show";
+			newNode.innerText = showData[i];
+			container1.appendChild(newNode);
+		}
+		for(var i = 0;i<showData.length;i++){
+			var newNode = document.createElement("li");
+			newNode.id = "inf" + (i + 4);
+			newNode.className = "show";
+			newNode.innerText = showData[i];
+			container2.appendChild(newNode);
+		}
+		main.addEventListener("mousemove",function(){
+			for(i = 0;i < show.length;i++){
+				show[i].style.animationPlayState = "paused";
+			}
+		},false);
+		main.addEventListener('mouseleave',function(){
+			for(i = 0;i < show.length;i++){
+				show[i].style.animationPlayState = "running";
+			}
+		},false);
+	</script>
+</html>
